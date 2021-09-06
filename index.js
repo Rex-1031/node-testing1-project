@@ -7,7 +7,7 @@
  * trimProperties({ name: '  jane  ' }) // returns a new object { name: 'jane' }
  */
 function trimProperties(obj) {
-  // ✨ implement
+  
   Object.keys(obj).map(k => obj[k] = obj[k].trim())
    let newObj = {...obj}
   return newObj
@@ -22,7 +22,8 @@ function trimProperties(obj) {
  * trimPropertiesMutation({ name: '  jane  ' }) // returns the object mutated in place { name: 'jane' }
  */
 function trimPropertiesMutation(obj) {
-  // ✨ implement
+  Object.keys(obj).map(k => obj[k] = obj[k].trim())
+  return obj
 }
 
 /**
