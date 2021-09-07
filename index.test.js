@@ -77,21 +77,21 @@ describe('[Exercise 5] Seasons', () => {
     expect(seasons.next()).toBe("fall")
   })
   test('[11] the THIRD call of seasons.next returns "winter"', () => {
-    seasons.next()
-    seasons.next()
+    for(let i = 0; i <2; i++){
+      seasons.next()
+    }
     expect(seasons.next()).toBe("winter")
   })
   test('[12] the FOURTH call of seasons.next returns "spring"', () => {
-    seasons.next()
-    seasons.next()
-    seasons.next()
+    for(let i = 0; i <3; i++){
+      seasons.next()
+    }
     expect(seasons.next()).toBe("spring")
   })
   test('[13] the FIFTH call of seasons.next returns again "summer"', () => {
-    seasons.next()
-    seasons.next()
-    seasons.next()
-    seasons.next()
+    for(let i = 0; i <4; i++){
+      seasons.next()
+    }
     expect(seasons.next()).toBe("summer")
   })
   test('[14] the 40th call of seasons.next returns "spring"', () => {
@@ -107,10 +107,25 @@ describe('[Exercise 6] Car', () => {
   beforeEach(() => {
     focus = new utils.Car('focus', 20, 30) // each test must start with a fresh car
   })
-  // test('[15] driving the car returns the updated odometer', () => {})
-  // test('[16] driving the car uses gas', () => {})
-  // test('[17] refueling allows to keep driving', () => {})
-  // test('[18] adding fuel to a full tank has no effect', () => {})
+  test('[15] driving the car returns the updated odometer', () => {
+    expect(focus.drive(50)).toBe(50)
+  })
+  test('[16] driving the car uses gas', () => {
+    focus.drive(600)
+    expect(focus.tank).toBe(0)
+  })
+  test('[17] refueling allows to keep driving', () => {
+    focus.drive(600)
+    focus.refuel(10)
+    expect(focus.odometer).toBe(600)
+  })
+  test('[18] adding fuel to a full tank has no effect', () => {
+    focus.refuel(20000000)
+    focus.drive(10000)
+    expect(focus.odometer).toBe(600)
+  
+    
+  })
 })
 
 describe('[Exercise 7] isEvenNumberAsync', () => {
