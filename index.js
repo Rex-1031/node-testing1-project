@@ -38,7 +38,7 @@ function findLargestInteger(integers) {
   const max = integers.reduce(function(prev, current) {
     return (prev.y > current.y) ? prev : current
 })
- return max
+ return max 
 }
 
 class Counter {
@@ -48,6 +48,7 @@ class Counter {
    */
   constructor(initialNumber) {
     // ✨ initialize whatever properties are needed
+    this.count = initialNumber
   }
 
   /**
@@ -64,6 +65,7 @@ class Counter {
    */
   countDown() {
     // ✨ implement
+    return this.count > 0? this.count-- : 0
   }
 }
 
